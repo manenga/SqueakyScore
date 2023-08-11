@@ -1,5 +1,5 @@
 //
-//  CreditReportInfo.swift
+//  ReportInfo.swift
 //  CreditScore
 //
 //  Created by Manenga Mungandi on 2023/08/11.
@@ -7,54 +7,7 @@
 
 import Foundation
 
-struct ReportResponse: Codable {
-    let accountIDVStatus: String
-    let creditReportInfo: CreditReportInfo
-    let dashboardStatus, personaType: String
-    let coachingSummary: CoachingSummary
-    let augmentedCreditScore: String
-
-    enum CodingKeys: String, CodingKey {
-        case accountIDVStatus
-        case creditReportInfo
-        case dashboardStatus, personaType
-        case coachingSummary
-        case augmentedCreditScore
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.accountIDVStatus = try container.decodeIfPresent(String.self, forKey: .accountIDVStatus) ?? ""
-        self.creditReportInfo = try container.decode(CreditReportInfo.self, forKey: .creditReportInfo)
-        self.dashboardStatus = try container.decodeIfPresent(String.self, forKey: .dashboardStatus) ?? ""
-        self.personaType = try container.decodeIfPresent(String.self, forKey: .personaType) ?? ""
-        self.coachingSummary = try container.decode(CoachingSummary.self, forKey: .coachingSummary)
-        self.augmentedCreditScore = try container.decodeIfPresent(String.self, forKey: .augmentedCreditScore) ?? ""
-    }
-}
-
-struct CoachingSummary: Codable {
-    let activeTodo, activeChat: Bool
-    let numberOfTodoItems, numberOfCompletedTodoItems: Int
-    let selected: Bool
-
-    enum CodingKeys: String, CodingKey {
-        case activeTodo, activeChat
-        case numberOfTodoItems, numberOfCompletedTodoItems
-        case selected
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.activeTodo = try container.decode(Bool.self, forKey: .activeTodo)
-        self.activeChat = try container.decode(Bool.self, forKey: .activeChat)
-        self.numberOfTodoItems = try container.decode(Int.self, forKey: .numberOfTodoItems)
-        self.numberOfCompletedTodoItems = try container.decode(Int.self, forKey: .numberOfCompletedTodoItems)
-        self.selected = try container.decode(Bool.self, forKey: .selected)
-    }
-}
-
-struct CreditReportInfo: Codable {
+struct ReportInfo: Codable {
     let score, scoreBand: Int
     let clientRef, status: String
     let maxScoreValue, minScoreValue, monthsSinceLastDefaulted: Int

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeScreen: View {
 
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+
     private var backgroundImage: some View {
         Image(uiImage: UIImage(named: "mountain")!)
             .resizable()
@@ -29,12 +31,12 @@ struct HomeScreen: View {
             Text("Welcome")
                 .modifier(PrimaryFont(
                     size: 16,
-                    color: .black,
+                    color: colorScheme == .light ? .black : .white,
                     weight: .light))
             Text("Manenga")
                 .modifier(PrimaryFont(
                     size: 16,
-                    color: .indigo,
+                    color: colorScheme == .light ? .indigo : .yellow,
                     weight: .bold))
         }
     }

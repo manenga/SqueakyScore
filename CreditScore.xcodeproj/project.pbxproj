@@ -19,7 +19,9 @@
 		FF3E4ACE2A869C6F00D81BED /* CreditReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4ACD2A869C6F00D81BED /* CreditReportViewModel.swift */; };
 		FF3E4AD12A86BADA00D81BED /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AD02A86BADA00D81BED /* APIClient.swift */; };
 		FF3E4AD32A86BAFC00D81BED /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AD22A86BAFC00D81BED /* APIManager.swift */; };
-		FF3E4AD62A86BB7E00D81BED /* CreditReportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AD52A86BB7E00D81BED /* CreditReportInfo.swift */; };
+		FF3E4AD62A86BB7E00D81BED /* ReportResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AD52A86BB7E00D81BED /* ReportResponse.swift */; };
+		FF3E4ADA2A86DCFC00D81BED /* CoachingSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AD92A86DCFC00D81BED /* CoachingSummary.swift */; };
+		FF3E4ADC2A86DD1F00D81BED /* ReportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4ADB2A86DD1F00D81BED /* ReportInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +58,9 @@
 		FF3E4ACD2A869C6F00D81BED /* CreditReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditReportViewModel.swift; sourceTree = "<group>"; };
 		FF3E4AD02A86BADA00D81BED /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FF3E4AD22A86BAFC00D81BED /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		FF3E4AD52A86BB7E00D81BED /* CreditReportInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditReportInfo.swift; sourceTree = "<group>"; };
+		FF3E4AD52A86BB7E00D81BED /* ReportResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportResponse.swift; sourceTree = "<group>"; };
+		FF3E4AD92A86DCFC00D81BED /* CoachingSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachingSummary.swift; sourceTree = "<group>"; };
+		FF3E4ADB2A86DD1F00D81BED /* ReportInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +112,10 @@
 			isa = PBXGroup;
 			children = (
 				FF3E4A9C2A8694A500D81BED /* CreditScoreApp.swift */,
-				FF3E4ACC2A869C5F00D81BED /* CircularInfo */,
 				FF3E4AD42A86BB5E00D81BED /* Models */,
 				FF3E4AC72A8695C500D81BED /* Modifiers */,
 				FF3E4ACF2A86BABC00D81BED /* Network */,
+				FF3E4ACC2A869C5F00D81BED /* ReportView */,
 				FF3E4AD72A86C19C00D81BED /* Screens */,
 				FF3E4AA02A8694A600D81BED /* Assets.xcassets */,
 				FF3E4AA22A8694A600D81BED /* CreditScore.entitlements */,
@@ -153,13 +157,13 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		FF3E4ACC2A869C5F00D81BED /* CircularInfo */ = {
+		FF3E4ACC2A869C5F00D81BED /* ReportView */ = {
 			isa = PBXGroup;
 			children = (
 				FF3E4ACA2A86960C00D81BED /* CreditReportView.swift */,
 				FF3E4ACD2A869C6F00D81BED /* CreditReportViewModel.swift */,
 			);
-			path = CircularInfo;
+			path = ReportView;
 			sourceTree = "<group>";
 		};
 		FF3E4ACF2A86BABC00D81BED /* Network */ = {
@@ -174,7 +178,9 @@
 		FF3E4AD42A86BB5E00D81BED /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FF3E4AD52A86BB7E00D81BED /* CreditReportInfo.swift */,
+				FF3E4ADB2A86DD1F00D81BED /* ReportInfo.swift */,
+				FF3E4AD52A86BB7E00D81BED /* ReportResponse.swift */,
+				FF3E4AD92A86DCFC00D81BED /* CoachingSummary.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,9 +327,11 @@
 				FF3E4AC92A8695D900D81BED /* PrimaryFont.swift in Sources */,
 				FF3E4ACE2A869C6F00D81BED /* CreditReportViewModel.swift in Sources */,
 				FF3E4A9D2A8694A500D81BED /* CreditScoreApp.swift in Sources */,
-				FF3E4AD62A86BB7E00D81BED /* CreditReportInfo.swift in Sources */,
+				FF3E4AD62A86BB7E00D81BED /* ReportResponse.swift in Sources */,
+				FF3E4ADC2A86DD1F00D81BED /* ReportInfo.swift in Sources */,
 				FF3E4ACB2A86960C00D81BED /* CreditReportView.swift in Sources */,
 				FF3E4AD12A86BADA00D81BED /* APIClient.swift in Sources */,
+				FF3E4ADA2A86DCFC00D81BED /* CoachingSummary.swift in Sources */,
 				FF3E4AD32A86BAFC00D81BED /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,7 +491,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = CleanScore;
+				INFOPLIST_KEY_CFBundleDisplayName = SqeakyScore;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -525,7 +533,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = CleanScore;
+				INFOPLIST_KEY_CFBundleDisplayName = SqeakyScore;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;

@@ -36,6 +36,7 @@
       "size" : "38x38"
     },
     {
+      "filename" : "114.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
@@ -70,18 +71,21 @@
       "size" : "60x60"
     },
     {
+      "filename" : "128.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "64x64"
     },
     {
+      "filename" : "icon-192-maskable.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
       "size" : "64x64"
     },
     {
+      "filename" : "AppIcon~ios-marketing-136x136.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
