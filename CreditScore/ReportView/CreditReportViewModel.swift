@@ -11,9 +11,9 @@ import Foundation
 class CreditReportViewModel: ObservableObject {
 
     private var cancellableToken: AnyCancellable?
-    private var response: ReportResponse? {
+    private var creditReportResponse: ReportResponse? {
         didSet {
-            guard let response = response else { return }
+            guard let response = creditReportResponse else { return }
             score = response.creditReportInfo.score
             changedScore = response.creditReportInfo.changedScore
             minScoreValue = response.creditReportInfo.minScoreValue
@@ -42,27 +42,17 @@ class CreditReportViewModel: ObservableObject {
 
     @Published var maxScoreValue: Int = .zero {
         didSet {
-            guard maxScoreValue > .zero else { return }
+            guard maxScoreValue > .zero && maxScoreValue > score else { return }
             progress = Double(score) / Double(maxScoreValue)
         }
     }
 
-    init(creditScore: CGFloat) {
-        requestReport()
-    }
-
-    func requestReport() {
-        cancellableToken = getRequestReport()
-            .sink(receiveValue: { [weak self] response in
-                self?.response = response
-            })
-    }
-}
-
-extension CreditReportViewModel {
-    private func getRequestReport() -> AnyPublisher<ReportResponse?, Never> {
-        APIManager.request()
+    init() {
+        cancellableToken = APIManager.request()
             .replaceError(with: nil)
             .eraseToAnyPublisher()
+            .sink(receiveValue: { [weak self] response in
+                self?.creditReportResponse = response
+            })
     }
 }

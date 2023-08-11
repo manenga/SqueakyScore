@@ -48,7 +48,7 @@ struct HomeScreen: View {
                 ScrollView {
                     VStack {
                         Spacer(minLength: 120)
-                        CreditReportView(viewModel: CreditReportViewModel(creditScore: 512))
+                        CreditReportView(viewModel: CreditReportViewModel())
                             .padding(5)
                     }
                 }

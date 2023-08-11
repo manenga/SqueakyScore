@@ -20,10 +20,10 @@ struct CoachingSummary: Codable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.activeTodo = try container.decode(Bool.self, forKey: .activeTodo)
-        self.activeChat = try container.decode(Bool.self, forKey: .activeChat)
-        self.numberOfTodoItems = try container.decode(Int.self, forKey: .numberOfTodoItems)
-        self.numberOfCompletedTodoItems = try container.decode(Int.self, forKey: .numberOfCompletedTodoItems)
-        self.selected = try container.decode(Bool.self, forKey: .selected)
+        self.activeTodo = try container.decodeIfPresent(Bool.self, forKey: .activeTodo) ?? false
+        self.activeChat = try container.decodeIfPresent(Bool.self, forKey: .activeChat) ?? false
+        self.numberOfTodoItems = try container.decodeIfPresent(Int.self, forKey: .numberOfTodoItems) ?? .zero
+        self.numberOfCompletedTodoItems = try container.decodeIfPresent(Int.self, forKey: .numberOfCompletedTodoItems) ?? .zero
+        self.selected = try container.decodeIfPresent(Bool.self, forKey: .selected) ?? false
     }
 }

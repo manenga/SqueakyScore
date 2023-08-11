@@ -97,6 +97,6 @@ struct CreditReportView: View {
 
 struct CircularInfoTilePreviews: PreviewProvider {
     static var previews: some View {
-        CreditReportView(viewModel: CreditReportViewModel(creditScore: 60))
+        CreditReportView(viewModel: CreditReportViewModel())
     }
 }
