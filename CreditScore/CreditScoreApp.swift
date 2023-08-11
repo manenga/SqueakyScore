@@ -11,7 +11,7 @@ import SwiftUI
 struct CreditScoreApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeScreen()
         }
     }
 }
