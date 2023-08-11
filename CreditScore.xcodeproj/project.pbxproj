@@ -22,6 +22,7 @@
 		FF3E4AD62A86BB7E00D81BED /* ReportResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AD52A86BB7E00D81BED /* ReportResponse.swift */; };
 		FF3E4ADA2A86DCFC00D81BED /* CoachingSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AD92A86DCFC00D81BED /* CoachingSummary.swift */; };
 		FF3E4ADC2A86DD1F00D81BED /* ReportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4ADB2A86DD1F00D81BED /* ReportInfo.swift */; };
+		FF3E4ADE2A86EBD500D81BED /* MockAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4ADD2A86EBD500D81BED /* MockAPIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		FF3E4AD52A86BB7E00D81BED /* ReportResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportResponse.swift; sourceTree = "<group>"; };
 		FF3E4AD92A86DCFC00D81BED /* CoachingSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachingSummary.swift; sourceTree = "<group>"; };
 		FF3E4ADB2A86DD1F00D81BED /* ReportInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInfo.swift; sourceTree = "<group>"; };
+		FF3E4ADD2A86EBD500D81BED /* MockAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				FF3E4AAE2A8694A600D81BED /* CreditScoreTests.swift */,
+				FF3E4ADD2A86EBD500D81BED /* MockAPIManager.swift */,
 			);
 			path = CreditScoreTests;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF3E4ADE2A86EBD500D81BED /* MockAPIManager.swift in Sources */,
 				FF3E4AAF2A8694A600D81BED /* CreditScoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

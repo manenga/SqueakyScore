@@ -31,4 +31,18 @@ struct ReportResponse: Codable {
         self.coachingSummary = try container.decode(CoachingSummary.self, forKey: .coachingSummary)
         self.augmentedCreditScore = try container.decodeIfPresent(String.self, forKey: .augmentedCreditScore) ?? ""
     }
+
+    init(accountIDVStatus: String,
+         creditReportInfo: ReportInfo,
+         dashboardStatus: String,
+         personaType: String,
+         coachingSummary: CoachingSummary,
+         augmentedCreditScore: String) {
+        self.accountIDVStatus = accountIDVStatus
+        self.creditReportInfo = creditReportInfo
+        self.dashboardStatus = dashboardStatus
+        self.personaType = personaType
+        self.coachingSummary = coachingSummary
+        self.augmentedCreditScore = augmentedCreditScore
+    }
 }

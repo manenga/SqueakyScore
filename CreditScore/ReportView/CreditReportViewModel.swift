@@ -11,6 +11,7 @@ import Foundation
 class CreditReportViewModel: ObservableObject {
 
     private var cancellableToken: AnyCancellable?
+    private var apiManager: APIManagerType
 
     private var creditReportResponse: ReportResponse? {
         didSet {
@@ -54,8 +55,13 @@ class CreditReportViewModel: ObservableObject {
         }
     }
 
-    init() {
-        cancellableToken = APIManager.request()
+    init(apiManager: APIManagerType = APIManager()) {
+        self.apiManager = apiManager
+        refreshCreditReport()
+    }
+
+    private func refreshCreditReport() {
+        cancellableToken = apiManager.request()
             .replaceError(with: nil)
             .eraseToAnyPublisher()
             .sink(receiveValue: { [weak self] response in

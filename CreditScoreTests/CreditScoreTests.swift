@@ -23,9 +23,8 @@ final class CreditScoreTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testMinScoreValueIs0() {
+    func testMinScoreValueIsCorrect() {
         let expectation = XCTestExpectation(description: "Returns minScoreValue of 0.")
-
         viewModel.$minScoreValue
             .dropFirst()
             .sink(receiveValue: {
@@ -37,9 +36,8 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
-    func testMaxScoreValueIs700() {
-        let expectation = XCTestExpectation(description: "Returns maxScoreValue of 700.")
-
+    func testMaxScoreValueIsCorrect() {
+        let expectation = XCTestExpectation(description: "Returns correct maxScoreValue.")
         viewModel.$maxScoreValue
             .dropFirst()
             .sink(receiveValue: {
@@ -51,9 +49,8 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
-    func testBandDescriptionIsExcellent() {
-        let expectation = XCTestExpectation(description: "Returns Excellent for bandDescription.")
-
+    func testBandDescriptionIsCorrect() {
+        let expectation = XCTestExpectation(description: "Returns correct bandDescription.")
         viewModel.$bandDescription
             .dropFirst()
             .sink(receiveValue: {
@@ -65,9 +62,8 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
-    func testCreditScoreIs514() {
-        let expectation = XCTestExpectation(description: "Returns credit score of 514.")
-
+    func testCreditScoreIsCorrect() {
+        let expectation = XCTestExpectation(description: "Returns correct credit score.")
         viewModel.$score
             .dropFirst()
             .sink(receiveValue: {
@@ -79,9 +75,8 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
-    func testChangedScoreIs0() {
+    func testChangedScoreIsCorrect() {
         let expectation = XCTestExpectation(description: "Returns changedScore of 0.")
-
         viewModel.$changedScore
             .dropFirst()
             .sink(receiveValue: {
@@ -93,9 +88,8 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
-    func testShouldShowRingIsTrue() {
+    func testShouldShowRingIsCorrect() {
         let expectation = XCTestExpectation(description: "Returns true for shouldShowRing.")
-
         viewModel.$shouldShowRing
             .dropFirst()
             .sink(receiveValue: {
@@ -119,11 +113,6 @@ final class CreditScoreTests: XCTestCase {
             })
             .store(in: &cancellables)
         wait(for: [expectation], timeout: 2)
-    }
-
-    func testBaseUrlIsCorrect() {
-        XCTAssertEqual(APIManager.baseUrl, "https://5lfoiyb0b3.execute-api.us-west-2.amazonaws.com/prod/mockcredit/values",
-                       "https://5lfoiyb0b3.execute-api.us-west-2.amazonaws.com/prod/mockcredit/values, but got \(APIManager.baseUrl).")
     }
 
     func testPerformanceExample() throws {

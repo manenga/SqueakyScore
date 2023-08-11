@@ -8,17 +8,23 @@
 import Combine
 import Foundation
 
-enum APIManager {
-    static let apiClient = APIClient()
-    static let baseUrl: String = "https://5lfoiyb0b3.execute-api.us-west-2.amazonaws.com/prod/mockcredit/values"
+protocol APIManagerType {
+    var apiClient: APIClient { get }
+    var baseUrl: String { get }
+    func request() -> AnyPublisher<ReportResponse?, Error>
+}
+
+class APIManager: APIManagerType {
+    let apiClient = APIClient()
+    let baseUrl: String = "https://5lfoiyb0b3.execute-api.us-west-2.amazonaws.com/prod/mockcredit/values"
 }
 
 extension APIManager {
-    static func request() -> AnyPublisher<ReportResponse?, Error> {
+    internal func request() -> AnyPublisher<ReportResponse?, Error> {
         return makeRequest()
     }
 
-    private static func makeRequest<T: Decodable>() -> AnyPublisher<T, Error> {
+    private func makeRequest<T: Decodable>() -> AnyPublisher<T, Error> {
         guard let url = URL(string: baseUrl) else { fatalError("Couldn't resolve URL") }
 
         let request = URLRequest(url: url)

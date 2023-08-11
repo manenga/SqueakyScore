@@ -26,4 +26,16 @@ struct CoachingSummary: Codable {
         self.numberOfCompletedTodoItems = try container.decodeIfPresent(Int.self, forKey: .numberOfCompletedTodoItems) ?? .zero
         self.selected = try container.decodeIfPresent(Bool.self, forKey: .selected) ?? false
     }
+
+    init(activeTodo: Bool,
+         activeChat: Bool,
+         numberOfTodoItems: Int,
+         numberOfCompletedTodoItems: Int,
+         selected: Bool) {
+        self.activeTodo = activeTodo
+        self.activeChat = activeChat
+        self.numberOfTodoItems = numberOfTodoItems
+        self.numberOfCompletedTodoItems = numberOfCompletedTodoItems
+        self.selected = selected
+    }
 }
