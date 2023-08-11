@@ -51,7 +51,7 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
-    func testBandDescriptionIsEmpty() {
+    func testBandDescriptionIsExcellent() {
         let expectation = XCTestExpectation(description: "Returns Excellent for bandDescription.")
 
         viewModel.$bandDescription
@@ -107,7 +107,7 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
-    func testShouldShowChangeIndicatorIsTrue() {
+    func testShouldShowChangeIndicatorIsFalse() {
         let expectation = XCTestExpectation(description: "Returns true for shouldShowChangeIndicator.")
 
         viewModel.$shouldShowChangeIndicator
