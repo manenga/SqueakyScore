@@ -25,14 +25,14 @@ struct CreditReportView: View {
         VStack(spacing: 14) {
             Text("Credit Score")
                 .modifier(PrimaryFont(
-                    size: 16,
+                    size: 24,
                     color: .white,
-                    weight: .bold))
+                    weight: .semibold))
             HStack {
                 Text("\(viewModel.score)")
                     .modifier(PrimaryFont(
                         size: 48,
-                        color: .white,
+                        color: .yellow,
                         weight: .bold))
                 VStack(alignment: .leading, spacing: 5) {
                     if viewModel.shouldShowChangeIndicator {
@@ -60,14 +60,14 @@ struct CreditReportView: View {
                 .modifier(PrimaryFont(
                     size: 16,
                     color: .white,
-                    weight: .light))
+                    weight: .medium))
         }
     }
 
     private var ring: some View {
         Circle()
             .stroke(style: StrokeStyle(lineWidth: 3))
-            .foregroundStyle(.tertiary)
+            .foregroundStyle(Color.indigo.opacity(0.25))
             .overlay {
                 if viewModel.shouldShowRing {
                     Circle()
