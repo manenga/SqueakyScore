@@ -1,5 +1,5 @@
 //
-//  InfoIndicator.swift
+//  InfomationIndicator.swift
 //  CreditScore
 //
 //  Created by Manenga Mungandi on 2023/08/12.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InfoIndicator: View {
+struct InfomationIndicator: View {
 
     var heading: String = ""
     @State var progress: Double
@@ -36,10 +36,10 @@ struct InfoIndicator: View {
 }
 
 
-struct InfoIndicatorPreviews: PreviewProvider {
+struct InfomationIndicatorPreviews: PreviewProvider {
     static var previews: some View {
-        InfoIndicator(heading: "",
-                      progress: 1.0)
+        InfomationIndicator(heading: "",
+                            progress: 1.0)
         .background(Color.black.opacity(0.85))
     }
 }
