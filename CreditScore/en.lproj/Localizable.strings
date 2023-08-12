@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  CreditScore
+
+  Created by Manenga Mungandi on 2023/08/12.
+  
+*/
+
+"welcome" = "Welcome";
+"credit_score" = "Credit Score";
+"out of" = "out of";
+"credit_report" = "Credit Report";
+"score_band" = "Score Band";
+"Short Term Credit Usage" = "Short Term Credit Usage";
+"Long Term Credit Usage" = "Long Term Credit Usage";
+"Short Term Debt" = "Short Term Debt";
+"Long Term Debt" = "Long Term Debt";
+"Days Until Next Report" = "Days Until Next Report";

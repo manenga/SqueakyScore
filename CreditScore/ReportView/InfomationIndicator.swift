@@ -9,12 +9,12 @@ import SwiftUI
 
 struct InfomationIndicator: View {
 
-    var heading: String = ""
+    var heading: LocalizedStringKey = ""
     @State var progress: Double
 
     var body: some View {
         VStack(spacing: 5) {
-            if !heading.isEmpty {
+            if heading != "" {
                 Text(heading)
                     .modifier(PrimaryFont(
                         size: 16,
