@@ -126,6 +126,21 @@ struct DetailScreen: View {
         }
     }
 
+    private var daysUntilNextReport: some View {
+        VStack {
+            Text("Days Until Next Report:")
+                .modifier(PrimaryFont(
+                    size: 16,
+                    color: .white,
+                    weight: .light))
+            Text("\(viewModel.daysUntilNextReport)")
+                .modifier(PrimaryFont(
+                    size: 32,
+                    color: .white,
+                    weight: .semibold))
+        }
+    }
+
     private var information: some View {
         VStack(spacing: 20) {
             heading
@@ -134,19 +149,7 @@ struct DetailScreen: View {
             infoIndicators.padding(.vertical)
             shortTermDebt
             longTermDebt
-            VStack {
-                Text("Days Until Next Report:")
-                    .modifier(PrimaryFont(
-                        size: 16,
-                        color: .white,
-                        weight: .light))
-                Text("\(viewModel.daysUntilNextReport)")
-                    .modifier(PrimaryFont(
-                        size: 32,
-                        color: .white,
-                        weight: .semibold))
-            }
-            .padding(.top, 10)
+            daysUntilNextReport.padding(.top, 10)
         }
     }
 
@@ -184,7 +187,7 @@ struct DetailScreen: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: backButton)
             .animation(animation, value: 1.0)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

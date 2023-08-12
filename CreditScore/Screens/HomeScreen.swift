@@ -62,7 +62,7 @@ struct HomeScreen: View {
                 DetailScreen(viewModel: CreditReportViewModel())
                     .navigationBarBackButtonHidden(true)
             }, label: { circularReport })
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
