@@ -9,17 +9,14 @@ import SwiftUI
 
 struct CreditReportView: View {
 
-    @ObservedObject var viewModel: CreditReportViewModel
-    @State private var drawingStroke = false
+    @StateObject var viewModel: CreditReportViewModel
+    @State var shouldShowRing = false
 
     private var background: some View {
         Color.black.opacity(0.85)
             .clipShape(Circle())
             .padding(25)
     }
-
-    private let animation = Animation
-        .easeInOut(duration: 1.5)
 
     private var information: some View {
         VStack(spacing: 14) {
@@ -64,34 +61,21 @@ struct CreditReportView: View {
         }
     }
 
-    private var ring: some View {
-        Circle()
-            .stroke(style: StrokeStyle(lineWidth: 3))
-            .foregroundStyle(Color.indigo.opacity(0.25))
-            .overlay {
-                if viewModel.shouldShowRing {
-                    Circle()
-                        .trim(from: 0, to: drawingStroke ? viewModel.progress : 0)
-                        .stroke(.white,
-                                style: StrokeStyle(
-                                    lineWidth: 3,
-                                    lineCap: .round))
-                        .onAppear {
-                            drawingStroke.toggle()
-                        }
-                }
-            }
-            .rotationEffect(.degrees(-90)).padding(40)
-
-    }
-
     var body: some View {
         ZStack {
             background
             information
-            ring
+            if viewModel.shouldShowRing {
+                AnimatedRing(
+                    progress: viewModel.progress,
+                    padding: 40)
+            } else {
+                AnimatedRing(
+                    progress: viewModel.progress,
+                    shouldShowRing: false,
+                    padding: 40)
+            }
         }
-        .animation(animation, value: drawingStroke)
     }
 }
 

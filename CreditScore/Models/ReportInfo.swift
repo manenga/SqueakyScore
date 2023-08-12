@@ -17,7 +17,7 @@ struct ReportInfo: Codable {
     let percentageCreditUsed, percentageCreditUsedDirectionFlag, changedScore, currentShortTermDebt: Int
     let currentShortTermNonPromotionalDebt, currentShortTermCreditLimit, currentShortTermCreditUtilisation, changeInShortTermDebt: Int
     let currentLongTermDebt, currentLongTermNonPromotionalDebt: Int
-    let currentLongTermCreditLimit, currentLongTermCreditUtilisation: String
+    let currentLongTermCreditLimit, currentLongTermCreditUtilisation: Int
     let changeInLongTermDebt, numPositiveScoreFactors, numNegativeScoreFactors, equifaxScoreBand: Int
     let equifaxScoreBandDescription: String
     let daysUntilNextReport: Int
@@ -56,8 +56,8 @@ struct ReportInfo: Codable {
         self.changeInShortTermDebt = try container.decodeIfPresent(Int.self, forKey: .changeInShortTermDebt) ?? .zero
         self.currentLongTermDebt = try container.decodeIfPresent(Int.self, forKey: .currentLongTermDebt) ?? .zero
         self.currentLongTermNonPromotionalDebt = try container.decodeIfPresent(Int.self, forKey: .currentLongTermNonPromotionalDebt) ?? .zero
-        self.currentLongTermCreditLimit = try container.decodeIfPresent(String.self, forKey: .currentLongTermCreditLimit) ?? ""
-        self.currentLongTermCreditUtilisation = try container.decodeIfPresent(String.self, forKey: .currentLongTermCreditUtilisation) ?? ""
+        self.currentLongTermCreditLimit = try container.decodeIfPresent(Int.self, forKey: .currentLongTermCreditLimit) ?? .zero
+        self.currentLongTermCreditUtilisation = try container.decodeIfPresent(Int.self, forKey: .currentLongTermCreditUtilisation) ?? .zero
         self.changeInLongTermDebt = try container.decodeIfPresent(Int.self, forKey: .changeInLongTermDebt) ?? .zero
         self.numPositiveScoreFactors = try container.decodeIfPresent(Int.self, forKey: .numPositiveScoreFactors) ?? .zero
         self.numNegativeScoreFactors = try container.decodeIfPresent(Int.self, forKey: .numNegativeScoreFactors) ?? .zero

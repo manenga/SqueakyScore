@@ -41,20 +41,27 @@ struct HomeScreen: View {
         }
     }
 
-    var body: some View {
-        NavigationView {
-            ZStack(alignment: .topLeading) {
-                backgroundImage
-                ScrollView {
-                    VStack {
-                        Spacer(minLength: 120)
-                        CreditReportView(viewModel: CreditReportViewModel())
-                            .padding(5)
-                    }
+    private var circularReport: some View {
+        ZStack(alignment: .topLeading) {
+            backgroundImage
+            ScrollView {
+                VStack {
+                    Spacer(minLength: 120)
+                    CreditReportView(viewModel: CreditReportViewModel())
+                        .padding(5)
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: toolbar)
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(content: toolbar)
+    }
+
+    var body: some View {
+        NavigationView {
+            NavigationLink(destination: {
+                DetailScreen(viewModel: CreditReportViewModel())
+                    .navigationBarBackButtonHidden(true)
+            }, label: { circularReport })
         }
     }
 }

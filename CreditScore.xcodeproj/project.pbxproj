@@ -24,6 +24,9 @@
 		FF3E4ADC2A86DD1F00D81BED /* ReportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4ADB2A86DD1F00D81BED /* ReportInfo.swift */; };
 		FF3E4ADE2A86EBD500D81BED /* MockAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4ADD2A86EBD500D81BED /* MockAPIManager.swift */; };
 		FF3E4AE02A87885100D81BED /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4ADF2A87885100D81BED /* Response.swift */; };
+		FF3E4AE22A878C9800D81BED /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AE12A878C9800D81BED /* DetailScreen.swift */; };
+		FF3E4AE72A87A1C600D81BED /* InfoIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AE62A87A1C600D81BED /* InfoIndicator.swift */; };
+		FF3E4AE92A87AD3100D81BED /* AnimatedRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AE82A87AD3100D81BED /* AnimatedRing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		FF3E4ADB2A86DD1F00D81BED /* ReportInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInfo.swift; sourceTree = "<group>"; };
 		FF3E4ADD2A86EBD500D81BED /* MockAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIManager.swift; sourceTree = "<group>"; };
 		FF3E4ADF2A87885100D81BED /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		FF3E4AE12A878C9800D81BED /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
+		FF3E4AE62A87A1C600D81BED /* InfoIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoIndicator.swift; sourceTree = "<group>"; };
+		FF3E4AE82A87AD3100D81BED /* AnimatedRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedRing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				FF3E4A9C2A8694A500D81BED /* CreditScoreApp.swift */,
+				FF3E4AE52A87A19500D81BED /* InfoIndicator */,
 				FF3E4AD42A86BB5E00D81BED /* Models */,
 				FF3E4AC72A8695C500D81BED /* Modifiers */,
 				FF3E4ACF2A86BABC00D81BED /* Network */,
@@ -165,6 +172,7 @@
 		FF3E4ACC2A869C5F00D81BED /* ReportView */ = {
 			isa = PBXGroup;
 			children = (
+				FF3E4AE82A87AD3100D81BED /* AnimatedRing.swift */,
 				FF3E4ACA2A86960C00D81BED /* CreditReportView.swift */,
 				FF3E4ACD2A869C6F00D81BED /* CreditReportViewModel.swift */,
 			);
@@ -194,9 +202,18 @@
 		FF3E4AD72A86C19C00D81BED /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FF3E4AE12A878C9800D81BED /* DetailScreen.swift */,
 				FF3E4A9E2A8694A500D81BED /* HomeScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		FF3E4AE52A87A19500D81BED /* InfoIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				FF3E4AE62A87A1C600D81BED /* InfoIndicator.swift */,
+			);
+			path = InfoIndicator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,13 +350,16 @@
 				FF3E4AC92A8695D900D81BED /* PrimaryFont.swift in Sources */,
 				FF3E4ACE2A869C6F00D81BED /* CreditReportViewModel.swift in Sources */,
 				FF3E4A9D2A8694A500D81BED /* CreditScoreApp.swift in Sources */,
+				FF3E4AE92A87AD3100D81BED /* AnimatedRing.swift in Sources */,
 				FF3E4AD62A86BB7E00D81BED /* ReportResponse.swift in Sources */,
 				FF3E4ADC2A86DD1F00D81BED /* ReportInfo.swift in Sources */,
 				FF3E4ACB2A86960C00D81BED /* CreditReportView.swift in Sources */,
 				FF3E4AE02A87885100D81BED /* Response.swift in Sources */,
+				FF3E4AE22A878C9800D81BED /* DetailScreen.swift in Sources */,
 				FF3E4AD12A86BADA00D81BED /* APIClient.swift in Sources */,
 				FF3E4ADA2A86DCFC00D81BED /* CoachingSummary.swift in Sources */,
 				FF3E4AD32A86BAFC00D81BED /* APIManager.swift in Sources */,
+				FF3E4AE72A87A1C600D81BED /* InfoIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +519,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = SqeakyScore;
+				INFOPLIST_KEY_CFBundleDisplayName = SqueakyScore;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -541,7 +561,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = SqeakyScore;
+				INFOPLIST_KEY_CFBundleDisplayName = SqueakyScore;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
