@@ -9,13 +9,12 @@ import Combine
 import Foundation
 
 protocol APIManagerType {
-    var apiClient: APIClient { get }
     var baseUrl: String { get }
     func request() -> AnyPublisher<ReportResponse?, Error>
 }
 
 class APIManager: APIManagerType {
-    let apiClient = APIClient()
+    private let apiClient = APIClient()
     let baseUrl: String = "https://5lfoiyb0b3.execute-api.us-west-2.amazonaws.com/prod/mockcredit/values"
 }
 
