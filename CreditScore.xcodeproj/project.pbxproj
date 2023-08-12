@@ -27,6 +27,7 @@
 		FF3E4AE22A878C9800D81BED /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AE12A878C9800D81BED /* DetailScreen.swift */; };
 		FF3E4AE72A87A1C600D81BED /* InfomationIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AE62A87A1C600D81BED /* InfomationIndicator.swift */; };
 		FF3E4AE92A87AD3100D81BED /* AnimatedRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3E4AE82A87AD3100D81BED /* AnimatedRing.swift */; };
+		FF3E4AF22A87FAB600D81BED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF3E4AF42A87FAB600D81BED /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		FF3E4AE12A878C9800D81BED /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
 		FF3E4AE62A87A1C600D81BED /* InfomationIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfomationIndicator.swift; sourceTree = "<group>"; };
 		FF3E4AE82A87AD3100D81BED /* AnimatedRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedRing.swift; sourceTree = "<group>"; };
+		FF3E4AF32A87FAB600D81BED /* af-ZA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "af-ZA"; path = "af-ZA.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FF3E4AF52A87FAE300D81BED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,14 +124,15 @@
 		FF3E4A9B2A8694A500D81BED /* CreditScore */ = {
 			isa = PBXGroup;
 			children = (
-				FF3E4A9C2A8694A500D81BED /* CreditScoreApp.swift */,
 				FF3E4AD42A86BB5E00D81BED /* Models */,
 				FF3E4AC72A8695C500D81BED /* Modifiers */,
 				FF3E4ACF2A86BABC00D81BED /* Network */,
 				FF3E4ACC2A869C5F00D81BED /* ReportView */,
 				FF3E4AD72A86C19C00D81BED /* Screens */,
 				FF3E4AA02A8694A600D81BED /* Assets.xcassets */,
+				FF3E4AF42A87FAB600D81BED /* Localizable.strings */,
 				FF3E4AA22A8694A600D81BED /* CreditScore.entitlements */,
+				FF3E4A9C2A8694A500D81BED /* CreditScoreApp.swift */,
 				FF3E4AA32A8694A600D81BED /* Preview Content */,
 			);
 			path = CreditScore;
@@ -294,6 +298,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"af-ZA",
 			);
 			mainGroup = FF3E4A902A8694A500D81BED;
 			productRefGroup = FF3E4A9A2A8694A500D81BED /* Products */;
@@ -313,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF3E4AA52A8694A600D81BED /* Preview Assets.xcassets in Resources */,
+				FF3E4AF22A87FAB600D81BED /* Localizable.strings in Resources */,
 				FF3E4AA12A8694A600D81BED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +393,18 @@
 			targetProxy = FF3E4AB52A8694A600D81BED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FF3E4AF42A87FAB600D81BED /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF3E4AF32A87FAB600D81BED /* af-ZA */,
+				FF3E4AF52A87FAE300D81BED /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FF3E4ABC2A8694A600D81BED /* Debug */ = {

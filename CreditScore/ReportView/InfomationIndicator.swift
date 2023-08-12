@@ -38,8 +38,9 @@ struct InfomationIndicator: View {
 
 struct InfomationIndicatorPreviews: PreviewProvider {
     static var previews: some View {
-        InfomationIndicator(heading: "",
+        InfomationIndicator(heading: "Short Term Credit Usage",
                             progress: 1.0)
         .background(Color.black.opacity(0.85))
+        .environment(\.locale, .init(identifier: "af-ZA"))
     }
 }

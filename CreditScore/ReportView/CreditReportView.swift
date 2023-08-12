@@ -20,7 +20,7 @@ struct CreditReportView: View {
 
     private var information: some View {
         VStack(spacing: 14) {
-            Text("Credit Score")
+            Text("credit_score")
                 .modifier(PrimaryFont(
                     size: 24,
                     color: .white,

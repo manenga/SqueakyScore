@@ -28,7 +28,7 @@ struct HomeScreen: View {
 
     private var nameStack: some View {
         VStack(alignment: .center) {
-            Text("Welcome")
+            Text("welcome")
                 .modifier(PrimaryFont(
                     size: 16,
                     color: colorScheme == .light ? .black : .white,

@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  CreditScore
+
+  Created by Manenga Mungandi on 2023/08/12.
+  
+*/
+
+"welcome" = "Welkom";
+"credit_score" = "Krediettelling";
+"credit_report" = "Kredietverslag";
+"score_band" = "Telling Band";
+"Short Term Credit Usage" = "Korttermyn kredietgebruik";
+"Long Term Credit Usage" = "Langtermyn kredietgebruik";
+"Short Term Debt" = "Korttermyn skuld";
+"Long Term Debt" = "Langtermyn skuld";
+"Days Until Next Report" = "Dae tot volgende verslag";
+"%@ out of %@" = "%@ uit %@";

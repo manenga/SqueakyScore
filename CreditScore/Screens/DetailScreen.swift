@@ -25,7 +25,7 @@ struct DetailScreen: View {
         .easeInOut(duration: 1.5)
 
     private var heading: some View {
-        Text("Credit Score")
+        Text("credit_score")
             .modifier(PrimaryFont(
                 size: 24,
                 color: .white,
@@ -66,7 +66,7 @@ struct DetailScreen: View {
     private var bandDescription: some View {
         HStack {
             VStack {
-                Text("Score band:")
+                Text("score_band")
                     .modifier(PrimaryFont(
                         size: 16,
                         color: .white,
@@ -78,7 +78,6 @@ struct DetailScreen: View {
                         weight: .medium))
             }
             InfomationIndicator(
-                heading: "",
                 progress: viewModel.scoreBandPercentage)
                 .frame(height: 90)
 
@@ -87,7 +86,7 @@ struct DetailScreen: View {
 
     private var shortTermDebt: some View {
         VStack {
-            Text("Short term debt:")
+            Text("Short Term Debt")
                 .modifier(PrimaryFont(
                     size: 16,
                     color: .white,
@@ -102,7 +101,7 @@ struct DetailScreen: View {
 
     private var longTermDebt: some View {
         VStack {
-            Text("Long term debt:")
+            Text("Long Term Debt")
                 .modifier(PrimaryFont(
                     size: 16,
                     color: .white,
@@ -126,9 +125,10 @@ struct DetailScreen: View {
         }
     }
 
+    @ViewBuilder
     private var daysUntilNextReport: some View {
         VStack {
-            Text("Days Until Next Report:")
+            Text("Days Until Next Report")
                 .modifier(PrimaryFont(
                     size: 16,
                     color: .white,
@@ -145,11 +145,11 @@ struct DetailScreen: View {
         VStack(spacing: 20) {
             heading
             scoreInformation
-            bandDescription.padding(.vertical, 20)
+            bandDescription.padding(.vertical, 5)
             infoIndicators.padding(.vertical)
             shortTermDebt
             longTermDebt
-            daysUntilNextReport.padding(.top, 10)
+            daysUntilNextReport
         }
     }
 
@@ -166,7 +166,7 @@ struct DetailScreen: View {
     private func toolbar() -> some ToolbarContent {
         ToolbarItem(placement: .principal) {
             HStack(alignment: .center) {
-                Text("Credit Report")
+                Text("credit_report")
                     .modifier(PrimaryFont(
                         size: 16,
                         color: colorScheme == .light ? .indigo : .yellow,
