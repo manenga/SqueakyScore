@@ -15,4 +15,4 @@
 "Short Term Debt" = "Korttermyn skuld";
 "Long Term Debt" = "Langtermyn skuld";
 "Days Until Next Report" = "Dae tot volgende verslag";
-"%@ out of %@" = "%@ uit %@";
+"out of %@" = "uit %@";
