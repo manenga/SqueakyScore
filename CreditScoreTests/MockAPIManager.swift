@@ -16,7 +16,7 @@ class MockAPIManager: APIManagerType {
 
 extension MockAPIManager {
     func request() -> AnyPublisher<ReportResponse?, Error> {
-        return Just(nil)
+        return Just(ReportResponse())
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }

@@ -15,12 +15,12 @@ class CreditReportViewModel: ObservableObject {
 
     private var creditReportResponse: ReportResponse? {
         didSet {
-            guard let response = creditReportResponse else { return }
-            score = response.creditReportInfo.score
-            changedScore = response.creditReportInfo.changedScore
-            minScoreValue = response.creditReportInfo.minScoreValue
-            maxScoreValue = response.creditReportInfo.maxScoreValue
-            bandDescription = response.creditReportInfo.equifaxScoreBandDescription
+            guard let report = creditReportResponse?.creditReportInfo else { return }
+            score = report.score
+            changedScore = report.changedScore
+            minScoreValue = report.minScoreValue
+            maxScoreValue = report.maxScoreValue
+            bandDescription = report.equifaxScoreBandDescription
 
             UserDefaults.standard.set(score, forKey: "Score")
             UserDefaults.standard.set(minScoreValue, forKey: "MinScore")

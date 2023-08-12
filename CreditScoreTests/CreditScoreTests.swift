@@ -13,10 +13,12 @@ final class CreditScoreTests: XCTestCase {
 
     private var cancellables = Set<AnyCancellable>()
     private var viewModel = CreditReportViewModel()
+    private var mockViewModel = CreditReportViewModel(apiManager: MockAPIManager())
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         viewModel = CreditReportViewModel()
+        mockViewModel = CreditReportViewModel(apiManager: MockAPIManager())
     }
 
     override func tearDownWithError() throws {
@@ -30,6 +32,43 @@ final class CreditScoreTests: XCTestCase {
             .sink(receiveValue: {
                 XCTAssertEqual($0, 0,
                                "Expected minScoreValue to be 0, but got \($0).")
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 2)
+    }
+
+    func testMinScoreValueIsCorrectWithMock() {
+        let expectation = XCTestExpectation(description: "Returns minScoreValue of 0.")
+        mockViewModel.$progress
+            .sink(receiveValue: {
+                XCTAssertEqual($0, 0,
+                               "Expected minScoreValue to be 0, but got \($0).")
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 2)
+    }
+
+    func testProgressValueIsCorrect() {
+        let expectation = XCTestExpectation(description: "Returns progress of 0.")
+        viewModel.$progress
+            .dropFirst()
+            .sink(receiveValue: {
+                XCTAssertEqual($0, 0.7342857142857143,
+                               "Expected progress to be 0, but got \($0).")
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 2)
+    }
+
+    func testProgressValueIsCorrectWithMock() {
+        let expectation = XCTestExpectation(description: "Returns progress of 0.")
+        mockViewModel.$progress
+            .sink(receiveValue: {
+                XCTAssertEqual($0, 0,
+                               "Expected progress to be 0, but got \($0).")
                 expectation.fulfill()
             })
             .store(in: &cancellables)
@@ -62,6 +101,18 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
+    func testBandDescriptionIsCorrectWithMock() {
+        let expectation = XCTestExpectation(description: "Returns correct bandDescription.")
+        mockViewModel.$bandDescription
+            .sink(receiveValue: {
+                XCTAssertEqual($0, "Excellent",
+                               "Expected bandDescription to be empty, but got \($0).")
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 2)
+    }
+
     func testCreditScoreIsCorrect() {
         let expectation = XCTestExpectation(description: "Returns correct credit score.")
         viewModel.$score
@@ -72,7 +123,19 @@ final class CreditScoreTests: XCTestCase {
                 expectation.fulfill()
             })
             .store(in: &cancellables)
-        wait(for: [expectation], timeout: 2)
+        wait(for: [expectation], timeout: 5)
+    }
+
+    func testCreditScoreIsCorrectWithMock() {
+        let expectation = XCTestExpectation(description: "Returns correct credit score.")
+        mockViewModel.$score
+            .sink(receiveValue: {
+                XCTAssertEqual($0, UserDefaults.standard.integer(forKey: "Score"),
+                               "Expected score to be \(UserDefaults.standard.integer(forKey: "Score")), but got \($0).")
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 5)
     }
 
     func testChangedScoreIsCorrect() {
@@ -85,7 +148,19 @@ final class CreditScoreTests: XCTestCase {
                 expectation.fulfill()
             })
             .store(in: &cancellables)
-        wait(for: [expectation], timeout: 2)
+        wait(for: [expectation], timeout: 5)
+    }
+
+    func testChangedScoreIsCorrectWithMock() {
+        let expectation = XCTestExpectation(description: "Returns changedScore of 0.")
+        mockViewModel.$changedScore
+            .sink(receiveValue: {
+                XCTAssertEqual($0, 0,
+                               "Expected changedScore to be 0, but got \($0).")
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 5)
     }
 
     func testShouldShowRingIsCorrect() {
@@ -101,11 +176,36 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
+    func testShouldShowRingIsCorrectWithMock() {
+        let expectation = XCTestExpectation(description: "Returns true for shouldShowRing.")
+        mockViewModel.$shouldShowRing
+            .sink(receiveValue: {
+                XCTAssertFalse($0,
+                               "Expected shouldShowRing to be false, but got \($0).")
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 2)
+    }
+
     func testShouldShowChangeIndicatorIsFalse() {
         let expectation = XCTestExpectation(description: "Returns true for shouldShowChangeIndicator.")
 
         viewModel.$shouldShowChangeIndicator
             .dropFirst()
+            .sink(receiveValue: {
+                XCTAssertFalse($0,
+                               "Expected shouldShowChangeIndicator to be false, but got \($0).")
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 2)
+    }
+
+    func testShouldShowChangeIndicatorIsFalseWithMock() {
+        let expectation = XCTestExpectation(description: "Returns true for shouldShowChangeIndicator.")
+
+        mockViewModel.$shouldShowChangeIndicator
             .sink(receiveValue: {
                 XCTAssertFalse($0,
                                "Expected shouldShowChangeIndicator to be false, but got \($0).")

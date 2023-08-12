@@ -9,9 +9,9 @@ import Foundation
 
 struct ReportResponse: Codable {
     let accountIDVStatus: String
-    let creditReportInfo: ReportInfo
+    let creditReportInfo: ReportInfo?
     let dashboardStatus, personaType: String
-    let coachingSummary: CoachingSummary
+    let coachingSummary: CoachingSummary?
     let augmentedCreditScore: String
 
     enum CodingKeys: String, CodingKey {
@@ -25,19 +25,19 @@ struct ReportResponse: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.accountIDVStatus = try container.decodeIfPresent(String.self, forKey: .accountIDVStatus) ?? ""
-        self.creditReportInfo = try container.decode(ReportInfo.self, forKey: .creditReportInfo)
+        self.creditReportInfo = try container.decodeIfPresent(ReportInfo.self, forKey: .creditReportInfo)
         self.dashboardStatus = try container.decodeIfPresent(String.self, forKey: .dashboardStatus) ?? ""
         self.personaType = try container.decodeIfPresent(String.self, forKey: .personaType) ?? ""
-        self.coachingSummary = try container.decode(CoachingSummary.self, forKey: .coachingSummary)
+        self.coachingSummary = try container.decodeIfPresent(CoachingSummary.self, forKey: .coachingSummary)
         self.augmentedCreditScore = try container.decodeIfPresent(String.self, forKey: .augmentedCreditScore) ?? ""
     }
 
-    init(accountIDVStatus: String,
-         creditReportInfo: ReportInfo,
-         dashboardStatus: String,
-         personaType: String,
-         coachingSummary: CoachingSummary,
-         augmentedCreditScore: String) {
+    init(accountIDVStatus: String = "FAIL",
+         creditReportInfo: ReportInfo? = nil,
+         dashboardStatus: String = "FAIL",
+         personaType: String = "",
+         coachingSummary: CoachingSummary? = nil,
+         augmentedCreditScore: String = "FAIL") {
         self.accountIDVStatus = accountIDVStatus
         self.creditReportInfo = creditReportInfo
         self.dashboardStatus = dashboardStatus
