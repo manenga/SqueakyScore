@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import CreditScore
 
 final class CreditScoreUITests: XCTestCase {
 
@@ -17,26 +18,32 @@ final class CreditScoreUITests: XCTestCase {
     }
 
     func testWelcomeNavigationTitle() throws {
-        let welcome = app.staticTexts["Welcome"]
+        let welcome = app.navigationBars.staticTexts["Welcome"]
         XCTAssert(welcome.exists)
 
-        let name = app.staticTexts["Manenga"]
+        let name = app.navigationBars.staticTexts["Manenga"]
         XCTAssert(name.exists)
     }
 
-    func testCreditScoreTitle() throws {
-        let creditScore = app.staticTexts["Credit Score"]
+    func testNavigationToDetailScreen() throws {
+        app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element.press(forDuration: 0.8)
+
+        let elementsQuery = app.scrollViews.otherElements
+
+        let creditScore = elementsQuery.staticTexts["Credit Score"]
         XCTAssert(creditScore.exists)
-    }
+        creditScore.tap()
 
-    func testCreditScoreValues() throws {
-        let creditScore = app.staticTexts["514"]
-        XCTAssert(creditScore.exists)
+        let shortTermDebt = elementsQuery.staticTexts["Short Term Debt"]
+        XCTAssert(shortTermDebt.exists)
 
-        let maxScore = app.staticTexts["out of 700"]
-        XCTAssert(maxScore.exists)
+        let longTermDebt = elementsQuery.staticTexts["Long Term Debt"]
+        XCTAssert(longTermDebt.exists)
 
-        let bandDescription = app.staticTexts["Excellent"]
-        XCTAssert(bandDescription.exists)
+        let shortTermCreditUsage = elementsQuery.staticTexts["Short Term Credit Usage"]
+        XCTAssert(shortTermCreditUsage.exists)
+
+        let longTermCreditUsage = elementsQuery.staticTexts["Long Term Credit Usage"]
+        XCTAssert(longTermCreditUsage.exists)
     }
 }

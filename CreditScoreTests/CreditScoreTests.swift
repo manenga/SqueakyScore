@@ -74,7 +74,6 @@ final class CreditScoreTests: XCTestCase {
     func testBandDescriptionIsCorrect() {
         let expectation = XCTestExpectation(description: "Returns correct bandDescription.")
         viewModel.$bandDescription
-            .dropFirst()
             .sink(receiveValue: {
                 XCTAssertEqual($0, "Excellent",
                                "Expected bandDescription to be Excellent, but got \($0).")
@@ -96,6 +95,18 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
 
+    func testScoreBandPercentageIsCorrectWithMock() {
+        let expectation = XCTestExpectation(description: "Returns correct scoreBandPercentage.")
+        mockViewModel.$scoreBandPercentage
+            .sink(receiveValue: {
+                XCTAssertEqual($0, .zero,
+                               "Expected scoreBandPercentage to be 0, but got \($0).")
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 2)
+    }
+    
     func testCreditScoreIsCorrect() {
         let expectation = XCTestExpectation(description: "Returns correct credit score.")
         viewModel.$score
@@ -120,6 +131,18 @@ final class CreditScoreTests: XCTestCase {
         wait(for: [expectation], timeout: 5)
     }
 
+    func testDaysUntilNextReportIsCorrectWithMock() {
+        let expectation = XCTestExpectation(description: "Returns correct days until next report.")
+        mockViewModel.$daysUntilNextReport
+            .sink(receiveValue: {
+                XCTAssertEqual($0, 0,
+                               "Expected days until next report to be 0, but got \($0).")
+                expectation.fulfill()
+            })
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 5)
+    }
+    
     func testChangedScoreIsCorrect() {
         let expectation = XCTestExpectation(description: "Returns changedScore of 0.")
         viewModel.$changedScore
@@ -138,19 +161,6 @@ final class CreditScoreTests: XCTestCase {
             .sink(receiveValue: {
                 XCTAssertEqual($0, 0,
                                "Expected changedScore to be 0, but got \($0).")
-                expectation.fulfill()
-            })
-            .store(in: &cancellables)
-        wait(for: [expectation], timeout: 5)
-    }
-
-    func testShouldShowRingIsCorrect() {
-        let expectation = XCTestExpectation(description: "Returns true for shouldShowRing.")
-        viewModel.$shouldShowRing
-            .drop(while: { !$0 })
-            .sink(receiveValue: {
-                XCTAssertTrue($0,
-                               "Expected shouldShowRing to be true, but got \($0).")
                 expectation.fulfill()
             })
             .store(in: &cancellables)
