@@ -11,7 +11,7 @@ import SwiftUI
 struct CreditScoreApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeScreen().environment(\.locale, .init(identifier: "af-ZA"))
+            HomeScreen()
         }
     }
 }
