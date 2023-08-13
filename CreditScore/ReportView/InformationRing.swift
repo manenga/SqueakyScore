@@ -11,7 +11,8 @@ struct InformationRing: View {
 
     var heading: LocalizedStringKey = ""
     @State var progress: Double
-
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    
     var body: some View {
         VStack(spacing: 5) {
             if heading != "" {
@@ -27,7 +28,7 @@ struct InformationRing: View {
                 Text("\(progress * 100, specifier: "%.0f")")
                     .modifier(PrimaryFont(
                         size: 18,
-                        color: .yellow,
+                        color: colorScheme == .light ? .yellow : .indigo,
                         weight: .bold))
             }
         }
