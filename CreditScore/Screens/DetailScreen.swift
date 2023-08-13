@@ -77,7 +77,7 @@ struct DetailScreen: View {
                         color: .white,
                         weight: .medium))
             }
-            InfomationIndicator(
+            InformationRing(
                 progress: viewModel.scoreBandPercentage)
                 .frame(height: 90)
 
@@ -116,10 +116,10 @@ struct DetailScreen: View {
 
     private var infoIndicators: some View {
         HStack {
-            InfomationIndicator(
+            InformationRing(
                 heading: "Short Term Credit Usage",
                 progress: viewModel.currentShortTermCreditFactor)
-            InfomationIndicator(
+            InformationRing(
                 heading: "Long Term Credit Usage",
                 progress: viewModel.currentLongTermCreditFactor)
         }

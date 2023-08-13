@@ -9,7 +9,7 @@ import Foundation
 
 struct ReportResponse: Codable {
     let accountIDVStatus: String
-    let creditReportInfo: ReportInfo?
+    let creditReportInfo: CreditReport?
     let dashboardStatus, personaType: String
     let coachingSummary: CoachingSummary?
     let augmentedCreditScore: String
@@ -25,7 +25,7 @@ struct ReportResponse: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.accountIDVStatus = try container.decodeIfPresent(String.self, forKey: .accountIDVStatus) ?? ""
-        self.creditReportInfo = try container.decodeIfPresent(ReportInfo.self, forKey: .creditReportInfo)
+        self.creditReportInfo = try container.decodeIfPresent(CreditReport.self, forKey: .creditReportInfo)
         self.dashboardStatus = try container.decodeIfPresent(String.self, forKey: .dashboardStatus) ?? ""
         self.personaType = try container.decodeIfPresent(String.self, forKey: .personaType) ?? ""
         self.coachingSummary = try container.decodeIfPresent(CoachingSummary.self, forKey: .coachingSummary)
@@ -33,7 +33,7 @@ struct ReportResponse: Codable {
     }
 
     init(accountIDVStatus: String = "FAIL",
-         creditReportInfo: ReportInfo? = nil,
+         creditReportInfo: CreditReport? = nil,
          dashboardStatus: String = "FAIL",
          personaType: String = "",
          coachingSummary: CoachingSummary? = nil,

@@ -47,11 +47,10 @@ struct HomeScreen: View {
             ScrollView {
                 VStack {
                     Spacer(minLength: 120)
-                    CreditReportView(viewModel: CreditReportViewModel())
+                    CircularReportView(viewModel: CreditReportViewModel())
                         .padding(5)
-                        .accessibilityIdentifier("circularReport")
                 }
-            }.accessibilityElement(children: .contain)
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(content: toolbar)

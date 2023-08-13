@@ -1,5 +1,5 @@
 //
-//  InfomationIndicator.swift
+//  InformationRing.swift
 //  CreditScore
 //
 //  Created by Manenga Mungandi on 2023/08/12.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InfomationIndicator: View {
+struct InformationRing: View {
 
     var heading: LocalizedStringKey = ""
     @State var progress: Double
@@ -38,7 +38,7 @@ struct InfomationIndicator: View {
 
 struct InfomationIndicatorPreviews: PreviewProvider {
     static var previews: some View {
-        InfomationIndicator(heading: "Short Term Credit Usage",
+        InformationRing(heading: "Short Term Credit Usage",
                             progress: 1.0)
         .background(Color.black.opacity(0.85))
         .environment(\.locale, .init(identifier: "af-ZA"))

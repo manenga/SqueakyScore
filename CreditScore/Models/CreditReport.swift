@@ -1,5 +1,5 @@
 //
-//  ReportInfo.swift
+//  CreditReport.swift
 //  CreditScore
 //
 //  Created by Manenga Mungandi on 2023/08/11.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReportInfo: Codable {
+struct CreditReport: Codable {
     let score, scoreBand: Int
     let clientRef, status: String
     let maxScoreValue, minScoreValue, monthsSinceLastDefaulted: Int

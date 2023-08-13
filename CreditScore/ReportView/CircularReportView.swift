@@ -1,5 +1,5 @@
 //
-//  CreditReportView.swift
+//  CircularReportView.swift
 //  CreditScore
 //
 //  Created by Manenga Mungandi on 2023/08/11.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CreditReportView: View {
+struct CircularReportView: View {
 
     @StateObject var viewModel: CreditReportViewModel
     @State var shouldShowRing = false
@@ -81,6 +81,6 @@ struct CreditReportView: View {
 
 struct CircularInfoTilePreviews: PreviewProvider {
     static var previews: some View {
-        CreditReportView(viewModel: CreditReportViewModel())
+        CircularReportView(viewModel: CreditReportViewModel())
     }
 }
